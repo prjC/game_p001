@@ -5,20 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class gamestart : MonoBehaviour
 {
-
-	float seconds;
 	GameObject anotherObject;
 	[SerializeField] private FadeController anotherScript;
+
+	bool is_start_fadein = false;
+	float seconds;
 
 	void Start()
 	{
 		GameObject anotherObject = GameObject.Find("fade_panel");
 		anotherScript = anotherObject.GetComponent<FadeController>();
 		//	fade_Panel = GameObject.Find(fade_panel);
+		is_start_fadein = true;
 
 	}
 	void Update()
 	{
+		if (is_start_fadein == true)
+		{
+			SetFadein();
+		}
+
 		seconds += Time.deltaTime;
 
 		if (seconds >= 5)
@@ -30,6 +37,12 @@ public class gamestart : MonoBehaviour
 	private void Setbool()
 	{
 		anotherScript.SetFadeOut();
+	}
+
+	private void SetFadein()
+	{
+		anotherScript.SetFadeIn();
+		is_start_fadein = false;
 	}
 
 	private void LoadScene()

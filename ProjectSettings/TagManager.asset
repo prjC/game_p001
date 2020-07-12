@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - item_coin
+  - gorl_line
+  - player_car
+  - player_status_manager
   layers:
   - Default
   - TransparentFX
@@ -27,7 +30,7 @@ TagManager:
   - EnemyWeapon
   - BossWeakPoint
   - Bullet
-  - 
+  - UI 3D Object
   - 
   - 
   - 

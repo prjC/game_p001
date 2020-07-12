@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -388,6 +388,7 @@ MonoBehaviour:
   green: 0
   blue: 0
   alfa: 0
+  isFadeIn: 0
   isFadeOut: 0
 --- !u!1 &640125215
 GameObject:
@@ -706,10 +707,10 @@ RectTransform:
   m_Father: {fileID: 980098168}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: -320, y: -770}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590297529
 MonoBehaviour:
@@ -732,7 +733,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 95686a49d3c171c41bf123974c5deac4, type: 3}
-    m_FontSize: 300
+    m_FontSize: 220
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

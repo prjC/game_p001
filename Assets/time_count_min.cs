@@ -18,7 +18,7 @@ public class time_count_min : MonoBehaviour
 
     void Update()
     {
-	
+
 		if (FlagManager.Instance.flags[1] == true)
 		
 		countup += Time.deltaTime;

@@ -24,12 +24,12 @@ public class enemycontrol : MonoBehaviour
 	[SerializeField] private float Ene_Deceleration_speed = 0.1f;//減速速度
 	[SerializeField] private float enemy_time;//
 
-	Rigidbody rb;
+	Rigidbody ene_rb;
 
 	// Start is called before the first frame update
 	void Start()
     {
-		rb = GetComponent<Rigidbody>();
+		ene_rb = GetComponent<Rigidbody>();
 		Ene_gear = 1;
 	}
 
@@ -40,7 +40,7 @@ public class enemycontrol : MonoBehaviour
 
 		if (FlagManager.Instance.flags[1] == true)
 		{
-			Enemy_Current_speed = rb.velocity.magnitude * 60 * 60 / 1000;
+			Enemy_Current_speed = ene_rb.velocity.magnitude * 60 * 60 / 1000;
 			Accel(); //アクセル
 		}
 	}
@@ -54,32 +54,32 @@ public class enemycontrol : MonoBehaviour
 
 			if (Enemy_Current_speed < Ene_max_speed_rowspeed_1st)
 			{
-				rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Enemy_speed += Ene_acceleration_rowspeed_1st);
+				ene_rb.velocity = new Vector3(ene_rb.velocity.x, ene_rb.velocity.y, Enemy_speed += Ene_acceleration_rowspeed_1st);
 			}
 			else if (Enemy_Current_speed < Ene_max_speed_1st)
 			{
-				rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Enemy_speed += Ene_acceleration_1st);
+				ene_rb.velocity = new Vector3(ene_rb.velocity.x, ene_rb.velocity.y, Enemy_speed += Ene_acceleration_1st);
 			}
 			break;
 		case 2:
 
 			if (Enemy_Current_speed < Ene_max_speed_rowspeed_2st)
 			{
-				rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Enemy_speed += Ene_acceleration_rowspeed_2st);
+				ene_rb.velocity = new Vector3(ene_rb.velocity.x, ene_rb.velocity.y, Enemy_speed += Ene_acceleration_rowspeed_2st);
 			}
 			else if (Enemy_Current_speed < Ene_max_speed_2st)
 			{
-				rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Enemy_speed += Ene_acceleration_2st);
+				ene_rb.velocity = new Vector3(ene_rb.velocity.x, ene_rb.velocity.y, Enemy_speed += Ene_acceleration_2st);
 			}
 			break;
 		case 3:
 			if (Enemy_Current_speed < Ene_max_speed_rowspeed_3st)
 			{
-				rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Enemy_speed += Ene_acceleration_rowspeed_3st);
+				ene_rb.velocity = new Vector3(ene_rb.velocity.x, ene_rb.velocity.y, Enemy_speed += Ene_acceleration_rowspeed_3st);
 			}
 			else if (Enemy_Current_speed < Ene_max_speed_3st)
 			{
-				rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, Enemy_speed += Ene_acceleration_3st);
+				ene_rb.velocity = new Vector3(ene_rb.velocity.x, ene_rb.velocity.y, Enemy_speed += Ene_acceleration_3st);
 			}
 			break;
 		}
