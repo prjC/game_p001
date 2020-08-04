@@ -9,6 +9,7 @@ TagManager:
   - gorl_line
   - player_car
   - player_status_manager
+  - ring_counts
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - BossWeakPoint
   - Bullet
   - UI 3D Object
-  - 
+  - UI3Dcar
   - 
   - 
   - 

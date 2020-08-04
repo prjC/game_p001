@@ -46,7 +46,6 @@ public class FadeController : MonoBehaviour
 		SetAlpha();               // c)変更した透明度をパネルに反映する
 		if (alfa <= fadein_alfa)
 		{             
-			fadeImage.enabled = false;
 			isFadeIn = false;
 		}
 	}
@@ -76,5 +75,15 @@ public class FadeController : MonoBehaviour
 	public void SetFadeOut()
 	{
 		isFadeOut = true;
+	}
+
+	public void SetFadeIn_false()
+	{
+		isFadeIn = false;
+	}
+
+	public void SetFadeOut_false()
+	{
+		isFadeOut = false;
 	}
 }

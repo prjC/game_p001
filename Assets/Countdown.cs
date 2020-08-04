@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using TMPro;
 
 public class Countdown : MonoBehaviour
@@ -9,42 +9,37 @@ public class Countdown : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _textCount_2;
 	[SerializeField] private TextMeshProUGUI _textCount_1;
 	[SerializeField] private TextMeshProUGUI _Count_go;
-	[SerializeField] private TextMeshProUGUI touchStart;
-	bool isCalledOnce = false;
+	[SerializeField] private GameObject touchStart;
+	[SerializeField] private GameObject custom_fill;//誤タッチ防止
+	[SerializeField] private bool isCalledOnce = false;
 	float seconds;
 
 	void Start()
 	{
-		GameObject gameObject = GameObject.Find("Text (TMP)");
 		isCalledOnce = true;
 	}
 
-	private void Update()
+	public void OnClickcount()
 	{
-		seconds += Time.deltaTime;
-
-		if (seconds >= 3)
+		custom_fill.gameObject.SetActive(true);
+		if (isCalledOnce == true)
 		{
-			isCalledOnce = false;
-		}
-	}
-
-	public void OnClick()
-	{
-
-		if (!isCalledOnce)
-		{
-			//Debug.Log("タッチしてるでやんす");
+			Debug.Log("1回のみのカウントダウン？");
 			StartCoroutine("CountdownCoroutine");//ダウン開始
-			isCalledOnce = true;
+			isCalledOnce = false;
+		
 		}
 	}
 
 	IEnumerator CountdownCoroutine()
 	{
+		yield return new WaitForSeconds(1.0f);
+
+		FlagManager.Instance.flags[5] = true;//スタートミニゲーム開始
 		touchStart.gameObject.SetActive(false);
 		_textCount_3.gameObject.SetActive(true);
-	    yield return new WaitForSeconds(1.0f);
+		FlagManager.Instance.flags[6] = true;//スタートミニゲーム開始
+		yield return new WaitForSeconds(1.0f);
 
 		_textCount_3.gameObject.SetActive(false);
 		_textCount_2.gameObject.SetActive(true);

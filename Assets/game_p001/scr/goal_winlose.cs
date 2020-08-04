@@ -7,12 +7,6 @@ public class goal_winlose: MonoBehaviour
 	public GameObject win;
 	public GameObject lose;
 
-
-	void Start()
-    {
-		
-	}
-
 	void OnTriggerEnter(Collider other)
 
 	{
@@ -26,6 +20,7 @@ public class goal_winlose: MonoBehaviour
 			win.SetActive(true);
 			FlagManager.Instance.flags[3] = true;//勝利フラグ
 			FlagManager.Instance.flags[2] = true;//勝敗判定後フラグ
+			player_status_manager.Instance.Save();
 			}
 		}
 		if (other.CompareTag("Enemy"))
@@ -38,6 +33,7 @@ public class goal_winlose: MonoBehaviour
 			lose.SetActive(true);
 			FlagManager.Instance.flags[4] = true;//敗北フラグ
 			FlagManager.Instance.flags[2] = true;//勝敗判定フラグ
+			player_status_manager.Instance.Save();
 			}
 		}
 	}

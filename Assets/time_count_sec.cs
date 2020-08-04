@@ -6,16 +6,24 @@ using TMPro;
 
 public class time_count_sec : MonoBehaviour
 {
-	[SerializeField] private TextMeshProUGUI Time_Count_sec;//タイマーテキスト
-	[SerializeField] private TextMeshProUGUI Time_Count_min;//タイマーテキスト
+	[SerializeField] private TextMeshProUGUI Time_Count_sec = null;//タイマーテキスト
+	[SerializeField] private TextMeshProUGUI Time_Count_min = null;//タイマーテキスト
+	[SerializeField] private GameObject canvas2D = null;
+	[SerializeField] private GameObject pleyer_time_count_sec = null;
+	[SerializeField] private GameObject pleyer_time_count_min = null;
 	private float countup;
 	private int second;
 	private int min;
-	public GameObject pleyer_time_count_sec;
-	public GameObject pleyer_time_count_min;
+	
 
 	void Start()
 	{
+		canvas2D = GameObject.Find("Canvas_2D");
+		pleyer_time_count_sec = canvas2D.transform.Find("Time_base/Player_Time_Count_sec").gameObject;
+		pleyer_time_count_min = canvas2D.transform.Find("Time_base/Player_Time_Count_min").gameObject;
+		Time_Count_sec = pleyer_time_count_sec.GetComponent<TextMeshProUGUI>();
+		Time_Count_min = pleyer_time_count_min.GetComponent<TextMeshProUGUI>();
+
 		countup = 0f;
 		second = 0;
 		min = 0;
