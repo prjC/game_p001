@@ -16,6 +16,14 @@ public class camera_move : MonoBehaviour
 
 	void Start ()
 	{
+		//プレイヤーのX座標は必ず合わせる
+		var came_pos = this.transform.position;
+		var pl_pos  = player.transform.position;
+		camera_pos.x = pl_pos.x;
+		offset_start.x = pl_pos.x;
+		came_pos.x = pl_pos.x;
+		this.transform.position = came_pos;
+
 		if (FlagManager.Instance.flags[8] == false)
 		{
 			isCalledOnce = true;
@@ -42,6 +50,7 @@ public class camera_move : MonoBehaviour
 			transform.position = Vector3.Lerp(offset_start, camera_pos, smoothTime);
 			if (transform.position == camera_pos)
 			{
+				//Debug.Log("原因");
 				offset = transform.position - player.transform.position;
 				FlagManager.Instance.flags[12] = false;
 				FlagManager.Instance.flags[13] = true;

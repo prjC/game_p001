@@ -1226,6 +1226,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7652268116167505948, guid: b71115fb699d13442b360bfd1fee2b4d,
+        type: 3}
+      propertyPath: TopSpeed_lv
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652268116167505948, guid: b71115fb699d13442b360bfd1fee2b4d,
+        type: 3}
+      propertyPath: Acceleration_lv
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652268116167505948, guid: b71115fb699d13442b360bfd1fee2b4d,
+        type: 3}
+      propertyPath: Torque_lv
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652268116167505948, guid: b71115fb699d13442b360bfd1fee2b4d,
+        type: 3}
+      propertyPath: StartDash_lv
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652268116167505948, guid: b71115fb699d13442b360bfd1fee2b4d,
+        type: 3}
+      propertyPath: Movie_get_ring
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652268116167505948, guid: b71115fb699d13442b360bfd1fee2b4d,
+        type: 3}
+      propertyPath: Game_clear
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7652268116167505949, guid: b71115fb699d13442b360bfd1fee2b4d,
         type: 3}
       propertyPath: m_Name
@@ -1381,6 +1411,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8714413321462532228, guid: 647f39836b5ec78459f81d7068e0d49e,
+        type: 3}
+      propertyPath: fadeSpeed
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714413321462532228, guid: 647f39836b5ec78459f81d7068e0d49e,
+        type: 3}
+      propertyPath: fadeout_alfa
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8714413321462532280, guid: 647f39836b5ec78459f81d7068e0d49e,
         type: 3}
       propertyPath: m_IsActive

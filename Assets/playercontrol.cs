@@ -199,10 +199,26 @@ public class playercontrol : MonoBehaviour
 		speed_gauge_Main.GetComponent <image_blink>().enabled = false; //明滅スクリプトにアクセス
 
 		Current_ring = player_status_manager.Instance.Player_ring;//リングの取得
-		Current_stage = player_status_manager.Instance.player_stage;//リングの取得
-		ring_Count.text = Current_ring.ToString("  0");
-		stage_Count.text = Current_stage.ToString("  0");
+		ring_Count.text = Current_ring.ToString("  0");//テキストに反映
 
+		Current_stage = player_status_manager.Instance.Player_stage;//ステージの取得
+		var stage_max = player_status_manager.Instance.Player_stage_max;//ステージの取得
+		var Game_cl = player_status_manager.Instance.Game_clear;//クリアフラグ
+
+		if (Current_stage < stage_max)
+		{
+			
+			stage_Count.text = Current_stage.ToString("  0");
+			if(Game_cl==1)
+			{
+				stage_Count.color = new Color(1.0f, 0.35f, 0.35f, 1.0f);
+			}
+
+		}
+		else  if (Current_stage == stage_max)
+		{
+			stage_Count.text = Current_stage.ToString("     Last");
+		}
 	}
 
 	void Update()
@@ -225,7 +241,7 @@ public class playercontrol : MonoBehaviour
 			audioSource03.volume = 0.05f;
 		}
 
-		if (FlagManager.Instance.flags[13] == true)
+		if (FlagManager.Instance.flags[13] == true && FlagManager.Instance.flags[14] == false)
 		{
 			FlagManager.Instance.flags[13] = false;
 		    start_bar.gameObject.SetActive(true);
@@ -536,7 +552,7 @@ public class playercontrol : MonoBehaviour
 
 			if ( 0.68f <= image.fillAmount && image.fillAmount <= 0.75f )
 			{
-				audioSource.PlayOneShot(sound7, 0.4f);
+				audioSource05.PlayOneShot(sound7, 0.4f);
 				StartCoroutine("great_gear_change");//ゲームの制限時間
 				is_change_gear_great_2st = true;
 			}
@@ -550,7 +566,7 @@ public class playercontrol : MonoBehaviour
 
 			if (0.68f <= image.fillAmount && image.fillAmount <= 0.75f)
 			{
-				audioSource.PlayOneShot(sound7, 0.4f);
+				audioSource05.PlayOneShot(sound7, 0.4f);
 				StartCoroutine("great_gear_change");//ゲームの制限時間
 				is_change_gear_great_3st = true;
 			}
@@ -564,7 +580,7 @@ public class playercontrol : MonoBehaviour
 
 			if (0.68f <= image.fillAmount && image.fillAmount <= 0.75f)
 			{
-				audioSource.PlayOneShot(sound7, 0.4f);
+				audioSource05.PlayOneShot(sound7, 0.4f);
 				StartCoroutine("great_gear_change");//ゲームの制限時間
 				is_change_gear_great_4st = true;
 			}
@@ -860,10 +876,11 @@ public class playercontrol : MonoBehaviour
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		audioSource04.PlayOneShot(sound1, 0.4f);
 
 		if (other.gameObject.tag == "item_coin")
 		{
+			Debug.Log("imakoko");
+			audioSource04.PlayOneShot(sound1, 0.4f);
 			StartCoroutine("Ring_get_eff");
 	
 		}
